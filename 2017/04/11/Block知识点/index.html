@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Block," />
 
 
 
@@ -87,12 +87,49 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Edwin">
-<meta property="og:url" content="http://coderedwin.com/index.html">
+<meta name="description" content="概括带有自动变量的匿名函数
+语法声明返回类型 (^名称) (参数列表)
+例如：
+1void (^block) ()
+变量^ 返回类型 （参数列表） {函数体}
+例如：
+123^ int (int a) &amp;#123;    return a * a&amp;#125;;
+省略形式^ {函数体}
+例如：
+1^&amp;#123;&amp;#125;;
+声明类型1typedef void(^block_t)();
+捕捉自动变量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Block知识点">
+<meta property="og:url" content="http://coderedwin.com/2017/04/11/Block知识点/index.html">
 <meta property="og:site_name" content="Edwin">
+<meta property="og:description" content="概括带有自动变量的匿名函数
+语法声明返回类型 (^名称) (参数列表)
+例如：
+1void (^block) ()
+变量^ 返回类型 （参数列表） {函数体}
+例如：
+123^ int (int a) &amp;#123;    return a * a&amp;#125;;
+省略形式^ {函数体}
+例如：
+1^&amp;#123;&amp;#125;;
+声明类型1typedef void(^block_t)();
+捕捉自动变量">
+<meta property="og:updated_time" content="2017-04-11T07:12:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Edwin">
+<meta name="twitter:title" content="Block知识点">
+<meta name="twitter:description" content="概括带有自动变量的匿名函数
+语法声明返回类型 (^名称) (参数列表)
+例如：
+1void (^block) ()
+变量^ 返回类型 （参数列表） {函数体}
+例如：
+123^ int (int a) &amp;#123;    return a * a&amp;#125;;
+省略形式^ {函数体}
+例如：
+1^&amp;#123;&amp;#125;;
+声明类型1typedef void(^block_t)();
+捕捉自动变量">
 
 
 
@@ -120,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://coderedwin.com/"/>
+  <link rel="canonical" href="http://coderedwin.com/2017/04/11/Block知识点/"/>
 
 
 
 
 
-  <title> Edwin </title>
+  <title> Block知识点 | Edwin </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -151,9 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,9 +281,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -278,10 +313,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/11/Block知识点/" itemprop="url">
-                  Block知识点
-                </a>
+                Block知识点
               
             
           </h1>
@@ -354,9 +386,7 @@
       
 
       
-        
-          
-            <h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p>带有<strong>自动变量</strong>的<strong>匿名函数</strong></p>
+        <h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p>带有<strong>自动变量</strong>的<strong>匿名函数</strong></p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>返回类型 (^名称) (参数列表)</p>
 <p>例如：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> (^block) ()</div></pre></td></tr></table></figure>
@@ -418,42 +448,56 @@
 </li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Block/" rel="tag"># Block</a>
+          
+        </div>
+      
+
+      
+        
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -461,6 +505,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -480,8 +528,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -543,6 +600,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概括"><span class="nav-number">1.</span> <span class="nav-text">概括</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明"><span class="nav-number">2.1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">2.2.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#省略形式"><span class="nav-number">2.2.1.</span> <span class="nav-text">省略形式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明类型"><span class="nav-number">2.3.</span> <span class="nav-text">声明类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕捉自动变量"><span class="nav-number">3.</span> <span class="nav-text">捕捉自动变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理全局变量、静态全局变量和静态局部变量"><span class="nav-number">3.1.</span> <span class="nav-text">处理全局变量、静态全局变量和静态局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#block修饰符"><span class="nav-number">3.2.</span> <span class="nav-text">__block修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block类型"><span class="nav-number">3.3.</span> <span class="nav-text">Block类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区别"><span class="nav-number">3.3.1.</span> <span class="nav-text">区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block循环应用的解决方法"><span class="nav-number">3.4.</span> <span class="nav-text">Block循环应用的解决方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -650,6 +723,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
