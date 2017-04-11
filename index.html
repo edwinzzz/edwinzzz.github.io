@@ -360,55 +360,43 @@
 <p>这两个方法是NSObject的类方法，并且在程序是开始运行时就会被调用。因为这样的性质，我们在进行一些预处理工作的时候可能用到这两个方法。</p>
 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p><a href="https://developer.apple.com/reference/objectivec/nsobject" target="_blank" rel="external">NSObject Class Reference</a>中包含了对这两个方法的说明</p>
 <h2 id="load"><a href="#load" class="headerlink" title="load"></a>load</h2><ul>
-<li><p>###当一个类或者category被添加到runtime时，load方法将被激活</p>
-<p>  我们新建一个类TestClass</p>
+<li><h3 id="当一个类或者category被添加到runtime时，load方法将被激活"><a href="#当一个类或者category被添加到runtime时，load方法将被激活" class="headerlink" title="当一个类或者category被添加到runtime时，load方法将被激活"></a>当一个类或者category被添加到runtime时，load方法将被激活</h3><p>  我们新建一个类TestClass</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TestClass</span> : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TestClass.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TestClass</span></span></div><div class="line">   </div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"TestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>  无须将类引入到任何文件中，直接运行程序，控制台将会打印</p>
+<blockquote>
+<p>2017-04-11 20:22:22.181 test[19177:3524447] TestClass, load</p>
+</blockquote>
 </li>
-</ul>
-<pre><code><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TestClass.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TestClass</span></span></div><div class="line">   </div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"TestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-
-
-无须将类引入到任何文件中，直接运行程序，控制台将会打印
-&gt; 2017-04-11 20:22:22.181 test[19177:3524447] TestClass, load
-</code></pre><ul>
-<li><p>###没有实现load方法时不会主动去调用其父类的load方法</p>
-<p>  新建一个类SubtestClass 继承自 TestClass</p>
+<li><h3 id="没有实现load方法时不会主动去调用其父类的load方法"><a href="#没有实现load方法时不会主动去调用其父类的load方法" class="headerlink" title="没有实现load方法时不会主动去调用其父类的load方法"></a>没有实现load方法时不会主动去调用其父类的load方法</h3><p>  新建一个类SubtestClass 继承自 TestClass</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TestClass.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SubtestClass</span> : <span class="title">TestClass</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"SubtestClass.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SubtestClass</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>  再运行一次，发现运行结果依然是</p>
+<blockquote>
+<p>2017-04-11 20:34:48.429 test[19220:3535962] TestClass, load</p>
+</blockquote>
+<p>  在SubtestClass没有实现load方法的时候，并没有调用其父类的方法。</p>
+<p>  接下来在SubtestClass中添加</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"SubtestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  打印结果变成了</p>
+<blockquote>
+<p>2017-04-11 20:37:43.766 test[19245:3539446] TestClass, load</p>
+<p>2017-04-11 20:37:43.767 test[19245:3539446] SubtestClass, load</p>
+</blockquote>
 </li>
-</ul>
-<pre><code><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"SubtestClass.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SubtestClass</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-
-
-再运行一次，发现运行结果依然是
-&gt; 2017-04-11 20:34:48.429 test[19220:3535962] TestClass, load
-
-在SubtestClass没有实现load方法的时候，并没有调用其父类的方法。
-
-接下来在SubtestClass中添加
-
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"SubtestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-
-打印结果变成了
-&gt; 2017-04-11 20:37:43.766 test[19245:3539446] TestClass, load
-
-&gt; 2017-04-11 20:37:43.767 test[19245:3539446] SubtestClass, load
-</code></pre><ul>
-<li><p>###先运行父类的load方法，在运行子类的load方法，再运行category的load方法<br>  新建一个category</p>
+<li><h3 id="先运行父类的load方法，在运行子类的load方法，再运行category的load方法"><a href="#先运行父类的load方法，在运行子类的load方法，再运行category的load方法" class="headerlink" title="先运行父类的load方法，在运行子类的load方法，再运行category的load方法"></a>先运行父类的load方法，在运行子类的load方法，再运行category的load方法</h3><p>  新建一个category</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TestClass.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">TestClass</span> (<span class="title">TestCategory</span>)</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TestClass+TestCategory.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TestClass</span> (<span class="title">TestCategory</span>)</span></div><div class="line">   </div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"TestCategory, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>  打印出来的结果是</p>
+<blockquote>
+<p>2017-04-11 20:43:18.606 test[19271:3544481] TestClass, load</p>
+<p>2017-04-11 20:43:18.607 test[19271:3544481] SubtestClass, load</p>
+<p>2017-04-11 20:43:18.607 test[19271:3544481] TestCategory, load</p>
+</blockquote>
 </li>
 </ul>
-<pre><code><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"TestClass+TestCategory.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">TestClass</span> (<span class="title">TestCategory</span>)</span></div><div class="line">   </div><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"TestCategory, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-
-打印出来的结果是
-&gt; 2017-04-11 20:43:18.606 test[19271:3544481] TestClass, load
-
-&gt; 2017-04-11 20:43:18.607 test[19271:3544481] SubtestClass, load
-
-&gt; 2017-04-11 20:43:18.607 test[19271:3544481] TestCategory, load
-</code></pre><h2 id="initialize"><a href="#initialize" class="headerlink" title="initialize"></a>initialize</h2><ul>
-<li><p>###当一个类或者其子类收到第一条消息时，runtime将会给该类发送initialize消息。</p>
-<p>  在刚才的代码基础上，将SubtestClass和TestCategory的load方法注释掉，并将TestClass的load方法改写成：</p>
+<h2 id="initialize"><a href="#initialize" class="headerlink" title="initialize"></a>initialize</h2><ul>
+<li><h3 id="当一个类或者其子类收到第一条消息时，runtime将会给该类发送initialize消息。"><a href="#当一个类或者其子类收到第一条消息时，runtime将会给该类发送initialize消息。" class="headerlink" title="当一个类或者其子类收到第一条消息时，runtime将会给该类发送initialize消息。"></a>当一个类或者其子类收到第一条消息时，runtime将会给该类发送initialize消息。</h3><p>  在刚才的代码基础上，将SubtestClass和TestCategory的load方法注释掉，并将TestClass的load方法改写成：</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"TestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>  并添加</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)initialize &#123;</div><div class="line">	   <span class="built_in">NSLog</span>(<span class="string">@"TestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -419,49 +407,34 @@
 <p>  initialize方法并没有被执行，这说明load方法并没有被记录为第一条发送给TestClass的消息</p>
 <p>  接下来我们把load方法修改一下</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@, %@"</span>, [TestClass <span class="keyword">class</span>], <span class="built_in">NSStringFromSelector</span>(_cmd));</div></pre></td></tr></table></figure>
+<p>  再运行，打印结果如下</p>
+<blockquote>
+<p>2017-04-11 21:07:11.623 test[19401:3566458] TestClass, initialize</p>
+<p>2017-04-11 21:07:11.624 test[19401:3566458] TestClass, load</p>
+</blockquote>
+<p>  initialize方法被调用，这是因为我们在执行[TestClass class]时，runtime将其记录为第一条消息，并在其执行之前执行initialize方法</p>
 </li>
-</ul>
-<pre><code>再运行，打印结果如下
-
-&gt; 2017-04-11 21:07:11.623 test[19401:3566458] TestClass, initialize
-
-&gt; 2017-04-11 21:07:11.624 test[19401:3566458] TestClass, load
-
-initialize方法被调用，这是因为我们在执行[TestClass class]时，runtime将其记录为第一条消息，并在其执行之前执行initialize方法
-</code></pre><ul>
 <li><h3 id="如果一个类的子类没有实现initialize方法，则它的initialize方法可能会被运行多次"><a href="#如果一个类的子类没有实现initialize方法，则它的initialize方法可能会被运行多次" class="headerlink" title="如果一个类的子类没有实现initialize方法，则它的initialize方法可能会被运行多次"></a>如果一个类的子类没有实现initialize方法，则它的initialize方法可能会被运行多次</h3><p>  接下来我们把SubtestClass的load方法改写为</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)load &#123;</div><div class="line">   	<span class="built_in">NSLog</span>(<span class="string">@"%@, %@"</span>, [SubtestClass <span class="keyword">class</span>], <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  再运行，结果如下</p>
+<blockquote>
+<p>2017-04-11 21:13:17.751 test[19483:3575173] TestClass, initialize</p>
+<p>2017-04-11 21:13:17.752 test[19483:3575173] TestClass, load</p>
+<p>2017-04-11 21:13:17.752 test[19483:3575173] TestClass, initialize</p>
+<p>2017-04-11 21:13:17.752 test[19483:3575173] SubtestClass, load</p>
+</blockquote>
+<p>  我们看到倒数第3行的输出可以知道TestClass的initialize方法又执行了一次，根据我们做出的改动，可以知道由于SubtestClass没有实现initialize方法，而在执行[SubtestClass class]时，触发了initialize方法执行，所以调用了其父类的initialize方法。</p>
+<p>  接下来给SubtestClass添加一个initialize方法</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)initialize &#123;</div><div class="line">	   <span class="built_in">NSLog</span>(<span class="string">@"SubtestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  再运行</p>
+<blockquote>
+<p>2017-04-11 21:17:31.672 test[19504:3578955] TestClass, initialize</p>
+<p>2017-04-11 21:17:31.672 test[19504:3578955] TestClass, load</p>
+<p>2017-04-11 21:17:31.673 test[19504:3578955] SubtestClass, initialize</p>
+<p>2017-04-11 21:17:31.673 test[19504:3578955] SubtestClass, load</p>
+</blockquote>
+<p>  我们可以看到SubtestClass只调用了其自己的initialize方法并没有再调用其父类的initialize方法</p>
 </li>
-</ul>
-<pre><code>再运行，结果如下
-
-&gt; 2017-04-11 21:13:17.751 test[19483:3575173] TestClass, initialize
-
-&gt; 2017-04-11 21:13:17.752 test[19483:3575173] TestClass, load
-
-&gt; 2017-04-11 21:13:17.752 test[19483:3575173] TestClass, initialize
-
-&gt; 2017-04-11 21:13:17.752 test[19483:3575173] SubtestClass, load
-
-我们看到倒数第3行的输出可以知道TestClass的initialize方法又执行了一次，根据我们做出的改动，可以知道由于SubtestClass没有实现initialize方法，而在执行[SubtestClass class]时，触发了initialize方法执行，所以调用了其父类的initialize方法。
-
-接下来给SubtestClass添加一个initialize方法
-
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)initialize &#123;</div><div class="line">	   <span class="built_in">NSLog</span>(<span class="string">@"SubtestClass, %@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-
-再运行
-
-&gt; 2017-04-11 21:17:31.672 test[19504:3578955] TestClass, initialize
-
-&gt; 2017-04-11 21:17:31.672 test[19504:3578955] TestClass, load
-
-&gt; 2017-04-11 21:17:31.673 test[19504:3578955] SubtestClass, initialize
-
-&gt; 2017-04-11 21:17:31.673 test[19504:3578955] SubtestClass, load
-
-我们可以看到SubtestClass只调用了其自己的initialize方法并没有再调用其父类的initialize方法
-</code></pre><ul>
 <li><h3 id="父类将在其子类之前收到initialize消息"><a href="#父类将在其子类之前收到initialize消息" class="headerlink" title="父类将在其子类之前收到initialize消息"></a>父类将在其子类之前收到initialize消息</h3></li>
 </ul>
 <p>我们将TestClass 和 SubtestClass 的load 和 initialize方法修改一下</p>
