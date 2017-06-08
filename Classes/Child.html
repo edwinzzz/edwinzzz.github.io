@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Child Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/Child" class="dashAnchor"></a>
+    <a title="Child Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">小巴代码手册 Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">小巴代码手册 Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Child Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Child.html">Child</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Human.html">Human</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@homeAddress">homeAddress</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Emotion.html">Emotion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ImportantEvent.html">ImportantEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Sex.html">Sex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Skill.html">Skill</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/EatableProtocol.html">EatableProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ParentProtocol.html">ParentProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type Definitions.html#/c:Child.h@T@didLearnSkillBlock">didLearnSkillBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Child</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Child</span> <span class="p">:</span> <span class="nc"><a href="../Classes/Human.html">Human</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Child类在<code>Human</code>类的基础上扩展了一些基本的属性和行为，例如：性别，学习某项技能。但其并不能完成一些成人才能完成的行为，例如：iOS开发。同时1个Child实例需要有一个实现<code>parentProtocol</code>协议的对象作为其监护人，以协助其进行对某些行为的处理。</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    请在初始化时指定<code>Child</code>性别，如果直接使用<code>- (instanceType)init</code>方法初始化，则获得的<code>Child</code>实例性别为<code>other</code>
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(py)sex"></a>
+                    <a name="//apple_ref/objc/Property/sex" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(py)sex">sex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>性别</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/Sex.html">Sex</a></span> <span class="n">sex</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">sex</span><span class="p">:</span> <span class="kt"><a href="../Enums/Sex.html">Sex</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(py)skill"></a>
+                    <a name="//apple_ref/objc/Property/skill" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(py)skill">skill</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>技能</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/Skill.html">Skill</a></span> <span class="n">skill</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">skill</span><span class="p">:</span> <span class="kt"><a href="../Enums/Skill.html">Skill</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(py)guardian"></a>
+                    <a name="//apple_ref/objc/Property/guardian" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(py)guardian">guardian</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>监护人</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/ParentProtocol.html">ParentProtocol</a></span><span class="o">&gt;</span> <span class="n">guardian</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">guardian</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ParentProtocol.html">ParentProtocol</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/%E5%88%9D%E5%A7%8B%E5%8C%96"></a>
+                <a name="//apple_ref/objc/Section/初始化" class="dashAnchor"></a>
+                <a href="#/%E5%88%9D%E5%A7%8B%E5%8C%96">
+                  <h3 class="section-name">初始化</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(im)initWithSex:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithSex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(im)initWithSex:">-initWithSex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>初始化1个小孩</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">initWithSex</span><span class="p">:(</span><span class="n"><a href="../Enums/Sex.html">Sex</a></span><span class="p">)</span><span class="nv">sex</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">?(</span><span class="nv">sex</span><span class="p">:</span> <span class="kt"><a href="../Enums/Sex.html">Sex</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>性别</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>小孩实例</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(im)initWithSex:Guadian:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithSex:Guadian:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(im)initWithSex:Guadian:">-initWithSex:Guadian:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>初始化1个有监护人的小孩</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nf">initWithSex</span><span class="p">:(</span><span class="n"><a href="../Enums/Sex.html">Sex</a></span><span class="p">)</span><span class="nv">sex</span>
+                              <span class="nf">Guadian</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/ParentProtocol.html">ParentProtocol</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">guadian</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">?(</span><span class="nv">sex</span><span class="p">:</span> <span class="kt"><a href="../Enums/Sex.html">Sex</a></span><span class="p">,</span> <span class="nv">guadian</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ParentProtocol.html">ParentProtocol</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>性别</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>guadian</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>监护人</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>小孩实例</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/%E8%A1%8C%E4%B8%BA"></a>
+                <a name="//apple_ref/objc/Section/行为" class="dashAnchor"></a>
+                <a href="#/%E8%A1%8C%E4%B8%BA">
+                  <h3 class="section-name">行为</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(im)learnSkill:"></a>
+                    <a name="//apple_ref/objc/Method/-learnSkill:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(im)learnSkill:">-learnSkill:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>学习某一项技能</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">learnSkill</span><span class="p">:(</span><span class="n"><a href="../Enums/Skill.html">Skill</a></span><span class="p">)</span><span class="nv">skill</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">learnSkill</span><span class="p">(</span><span class="n">_</span> <span class="nv">skill</span><span class="p">:</span> <span class="kt"><a href="../Enums/Skill.html">Skill</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skill</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>需要被学习的技能</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>是否成功习得技能</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(im)learnSkill:complete:"></a>
+                    <a name="//apple_ref/objc/Method/-learnSkill:complete:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(im)learnSkill:complete:">-learnSkill:complete:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>学习某一项技能，并在完成后执行block</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">learnSkill</span><span class="p">:(</span><span class="n"><a href="../Enums/Skill.html">Skill</a></span><span class="p">)</span><span class="nv">skill</span> <span class="nf">complete</span><span class="p">:(</span><span class="n"><a href="../Type Definitions.html#/c:Child.h@T@didLearnSkillBlock">didLearnSkillBlock</a></span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">complete</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">learnSkill</span><span class="p">(</span><span class="n">_</span> <span class="nv">skill</span><span class="p">:</span> <span class="kt"><a href="../Enums/Skill.html">Skill</a></span><span class="p">,</span> <span class="nv">complete</span><span class="p">:</span> <span class="n"><a href="../Type Definitions.html#/c:Child.h@T@didLearnSkillBlock">didLearnSkillBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>skill</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>需要被学习的技能</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>complete</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>学习完成后执行的动作</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(im)play"></a>
+                    <a name="//apple_ref/objc/Method/-play" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(im)play">-play</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>玩耍</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">play</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">play</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/%E5%93%8D%E5%BA%94%E5%A4%96%E9%83%A8%E5%8F%98%E5%8C%96"></a>
+                <a name="//apple_ref/objc/Section/响应外部变化" class="dashAnchor"></a>
+                <a href="#/%E5%93%8D%E5%BA%94%E5%A4%96%E9%83%A8%E5%8F%98%E5%8C%96">
+                  <h3 class="section-name">响应外部变化</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)Child(im)handleEvent:"></a>
+                    <a name="//apple_ref/objc/Method/-handleEvent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)Child(im)handleEvent:">-handleEvent:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>处理外部产生的一些重大事件</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">handleEvent</span><span class="p">:(</span><span class="n"><a href="../Enums/ImportantEvent.html">ImportantEvent</a></span><span class="p">)</span><span class="nv">event</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">handle</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImportantEvent.html">ImportantEvent</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>产生的重大事件</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>didichuxing</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
